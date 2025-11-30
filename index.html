@@ -1,89 +1,254 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>¡ADVERTENCIA!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UN TITULO PARA EL TITULO QUE NO TIENE!</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #8B0000;
-            color: white;
-            text-align: center;
-            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
-        .warning {
-            border: 3px solid yellow;
-            padding: 30px;
-            margin: 50px auto;
-            max-width: 600px;
-            background: #B22222;
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 0.8s ease-out;
         }
-        .qr-code {
-            margin: 30px 0;
-            border: 2px dashed white;
-            padding: 15px;
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .download-box {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 2px dashed #dee2e6;
+        }
+
+        .download-warning {
+            color: #856404;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        .video-link {
             display: inline-block;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
         }
-        .blink {
-            animation: blink 1s infinite;
+
+        .video-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(40, 167, 69, 0.4);
+            background: linear-gradient(45deg, #20c997, #28a745);
         }
-        @keyframes blink {
-            50% { opacity: 0; }
+
+        .video-link::after {
+            content: '⬇️';
+            margin-left: 10px;
+            font-size: 1.2em;
+        }
+
+        .features {
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .features h3 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            padding: 10px 0;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .features li::before {
+            content: '🎬';
+            position: absolute;
+            left: 0;
+            font-size: 1.1em;
+        }
+
+        .file-info {
+            background: #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #495057;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .video-link {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="warning">
-        <h1 class="blink">¡ALTO!</h1>
-        <h2>CONTENIDO CLASIFICADO</h2>
-        <p>Al escanear este código aceptas los términos y condiciones:</p>
-        <ul style="text-align: left;">
-            <li>No podrás desver el contenido</li>
-            <li>Tu mente podría explotar</li>
-            <li>Procede bajo tu propio riesgo</li>
-        </ul>
-        
-        <div class="qr-code">
-            <img src="Mi_código_QR_2-1024.png" width="200" alt="ALERTAA!!! USTED CONTINUA BAJO SU PROPIO RIESGO!!!">
+    <div class="container">
+        <div class="header">
+            <div class="icon">📥</div>
+            <h1>¡Contenido Listo!</h1>
+            <p class="subtitle">Tu video de Neymar Skills Insanas 9999% imposibles está preparado para descargar</p>
         </div>
-        
-        <p><strong>¿Aún quieres continuar?</strong></p>
+
+        <div class="download-box">
+            <div class="download-warning">
+                ⚠️ Este enlace descargará el video a tu dispositivo
+            </div>
+            
+            <div class="file-info">
+                <strong>📁 Archivo:</strong> Video de Neymar Prime<br>
+                <strong>💾 Formato:</strong> MP4<br>
+                <strong>⬇️ Tipo:</strong> Descarga directa
+            </div>
+
+            <!-- AQUÍ ESTÁ TU ENLACE ACTUAL -->
+            <a href="https://drive.google.com/uc?export=download&id=1ahEKAobza7_XEDTogCq4OciT-kDIjy8Y" 
+               class="video-link pulse" 
+               target="_blank">
+                Descargar Video
+            </a>
+        </div>
+
+        <div class="features">
+            <h3>✨ Instrucciones:</h3>
+            <ul>
+                <li>Haz clic en el botón verde</li>
+                <li>Espera a que comience la descarga</li>
+                <li>Abre el archivo desde tu dispositivo</li>
+                <li>¡Disfruta del contenido!</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>¿Problemas con la descarga? Verifica tu conexión a internet 📡</p>
+        </div>
     </div>
+
+    <script>
+        // Contador de clics
+        let clickCount = 0;
+        const downloadLink = document.querySelector('.video-link');
+        
+        downloadLink.addEventListener('click', function() {
+            clickCount++;
+            
+            // Mensaje después de varios intentos
+            if (clickCount === 2) {
+                setTimeout(() => {
+                    alert('💡 Si la descarga no inicia, revisa tu carpeta de "Descargas"');
+                }, 1000);
+            }
+        });
+
+        // Efecto especial al hacer hover
+        downloadLink.addEventListener('mouseenter', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'pulse 2s infinite';
+            }, 10);
+        });
+    </script>
 </body>
-<script>
-    // Crear un botón de "Acepto el Riesgo"
-    const acceptButton = document.createElement('button');
-    acceptButton.textContent = 'SÍ, ACEPTO EL RIESGO';
-    acceptButton.style.cssText = `
-        background-color: #FFD700;
-        color: #8B0000;
-        border: none;
-        padding: 15px 30px;
-        text-align: center;
-        font-size: 18px;
-        margin: 20px;
-        cursor: pointer;
-        border-radius: 5px;
-        font-family: 'Courier New', monospace;
-        font-weight: bold;
-    `;
-
-    // Añadir un efecto hover al botón
-    acceptButton.onmouseover = function() {
-        this.style.backgroundColor = '#FFF';
-        this.style.transform = 'scale(1.05)';
-    };
-    acceptButton.onmouseout = function() {
-        this.style.backgroundColor = '#FFD700';
-        this.style.transform = 'scale(1)';
-    };
-
-    // Añadir lo que pasa cuando se hace clic
-    acceptButton.onclick = function() {
-        alert('¡Valiente! Ahora tu destino está en tus manos. ¡Escanea!');
-        // Aquí podrías añadir más acciones, como hacer el QR más grande.
-    };
-
-    // Insertar el botón en la advertencia
-    document.querySelector('.warning').appendChild(acceptButton);
-</script>
 </html>
