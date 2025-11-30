@@ -49,4 +49,41 @@
         <p><strong>¿Aún quieres continuar?</strong></p>
     </div>
 </body>
+<script>
+    // Crear un botón de "Acepto el Riesgo"
+    const acceptButton = document.createElement('button');
+    acceptButton.textContent = 'SÍ, ACEPTO EL RIESGO';
+    acceptButton.style.cssText = `
+        background-color: #FFD700;
+        color: #8B0000;
+        border: none;
+        padding: 15px 30px;
+        text-align: center;
+        font-size: 18px;
+        margin: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+    `;
+
+    // Añadir un efecto hover al botón
+    acceptButton.onmouseover = function() {
+        this.style.backgroundColor = '#FFF';
+        this.style.transform = 'scale(1.05)';
+    };
+    acceptButton.onmouseout = function() {
+        this.style.backgroundColor = '#FFD700';
+        this.style.transform = 'scale(1)';
+    };
+
+    // Añadir lo que pasa cuando se hace clic
+    acceptButton.onclick = function() {
+        alert('¡Valiente! Ahora tu destino está en tus manos. ¡Escanea!');
+        // Aquí podrías añadir más acciones, como hacer el QR más grande.
+    };
+
+    // Insertar el botón en la advertencia
+    document.querySelector('.warning').appendChild(acceptButton);
+</script>
 </html>
